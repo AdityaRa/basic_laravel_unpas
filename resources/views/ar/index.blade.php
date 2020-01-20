@@ -1,5 +1,5 @@
 <!-- Kasih tau laravel mau ambil template engine di folder mana -->
-@extends('layout/template')
+@extends('layout.template')
 <!-- Mengatur Title -->
 @section('title','AR')
 <!-- Mengatur Isi Container -->

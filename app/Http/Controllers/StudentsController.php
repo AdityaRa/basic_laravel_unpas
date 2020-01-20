@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Http\Request;
-// Jika ingin menggunakan query builder jangan lupa input ini ya
-use Illuminate\Support\Facades\DB;
 
-class MahasiswaController extends Controller
+class StudentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,16 +14,10 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        
-        // GET DATA QUERY BUILDER
-        // $ar = DB::table('account_representative')->get();
-
-        // GET DATA ELOQUENT
-        // Mengambil semua data dari table students karen sesuai kaidah ; Student di bawha itu cuman wakil model
-        $ar =\App\Student::all();
+        $student =\App\Student::all();
         // dump($ar);
         // // kirim data yang sudah diambil dari database ke view dengan variable $ar
-        return view('ar.index', ['ar' => $ar]);
+        return view('students.index', ['students' => $student]);
     }
 
     /**
@@ -34,7 +27,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //Membuat suatu data baru dengan mengisi form atau semacamnya
+        // //Membuat suatu data baru dengan mengisi form atau semacamnya
     }
 
     /**
@@ -45,52 +38,52 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //menyimpan data baru yang sebelumnya udah diisi formnya
+        ////menyimpan data baru yang sebelumnya udah diisi formnya
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        //menampilkan 1 data secara penuh
-        
+        // seharusnya di query dulu SELECT * from students where $id = $student jadi ini udah otomatis
+        return view('students.show',['students'=>$student]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
-        //mengedit data atau mengubah data yang sudah ada dengan mengisi form
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //menyimpan kembali data yang sudah diisi form editnya
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        //menghapus data yang sudah ada
+        //
     }
 }

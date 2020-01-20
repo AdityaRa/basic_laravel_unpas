@@ -11,6 +11,4 @@ class Student extends Model
 
     //digunakan jika nama table kita tidak jamak / tidak sesuai kaidah table = plural & model = singular
     //protected $table = 'student';
-
-
 }

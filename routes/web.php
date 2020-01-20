@@ -19,6 +19,9 @@ Route::get('/about','PagesController@about');
 // Megarahkan ke MahasiswaController dengan index Show
 Route::get('/ar','MahasiswaController@index');
 
+Route::get('/students','StudentsController@index');
+// Untuk handle show sesuai id yang dipanggil
+Route::get('/students/{student}','StudentsController@show');
 
 // Cara Konvesional
 // Route::get('/', function () {
