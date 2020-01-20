@@ -22,17 +22,22 @@
                        </thead>
                        {{-- Badan table --}}
                        <tbody>
+                           {{-- mengambil data yang sudah dilempar dari controller dengan variable $ar --}}
+                           {{-- variable $key disini hanya untuk sebagai variable dalam view saja --}}
+                           @foreach($ar as $key)
                            <tr>
-                            <th scope ="row">1</th>
-                            <td>S-345</td> 
-                            <td>PT Bumi Perkasa Jaya</td>
-                            <td>Ferdi Juli</td> 
+                            {{-- memanggil variable berulang untuk memberi number saja --}}
+                           <th scope ="row">{{$loop->iteration}}</th>
+                            {{-- memanggil semua baris yang ada pada table --}}
+                            <td>{{$key->nomor_surat}}</td> 
+                            <td>{{$key->wajib_pajak}}</td>
+                            <td>{{$key->ar}}</td> 
                             <td>
                                 <a href="" class="badge badge-success">Edit</a>
                                 <a href="" class="badge badge-danger">Delete</a>
                             </td>
-
                            </tr>
+                           @endforeach
                        </tbody>
                    </table>
                

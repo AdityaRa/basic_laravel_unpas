@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// Jika ingin menggunakan query builder jangan lupa input ini ya
+use Illuminate\Support\Facades\DB;
 
 class MahasiswaController extends Controller
 {
@@ -14,7 +16,11 @@ class MahasiswaController extends Controller
     public function index()
     {
         //Menampilkan awal ketika index dipanggil
-        return view('ar.index');
+        // account_representative merepresentasikan nama table pada database
+        $ar = DB::table('account_representative')->get();
+        dump($ar);
+        // kirim data yang sudah diambil dari database ke view dengan variable $ar
+        return view('ar.index', ['ar' => $ar]);
     }
 
     /**
