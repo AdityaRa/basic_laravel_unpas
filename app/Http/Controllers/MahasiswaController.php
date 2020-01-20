@@ -21,6 +21,7 @@ class MahasiswaController extends Controller
         // GET DATA QUERY BUILDER
         // $ar = DB::table('account_representative')->get();
         // GET DATA ELOQUENT
+        // Mengambil semua data dari table students karen sesuai kaidah ; Student di bawha itu cuman wakil model
         $ar =\App\Student::all();
          dump($ar);
         // // kirim data yang sudah diambil dari database ke view dengan variable $ar
