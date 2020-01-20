@@ -15,11 +15,15 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //Menampilkan awal ketika index dipanggil
-        // account_representative merepresentasikan nama table pada database
-        $ar = DB::table('account_representative')->get();
-        dump($ar);
-        // kirim data yang sudah diambil dari database ke view dengan variable $ar
+        
+        // //Menampilkan awal ketika index dipanggil
+        // // account_representative merepresentasikan nama table pada database
+        // GET DATA QUERY BUILDER
+        // $ar = DB::table('account_representative')->get();
+        // GET DATA ELOQUENT
+        $ar =\App\Student::all();
+         dump($ar);
+        // // kirim data yang sudah diambil dari database ke view dengan variable $ar
         return view('ar.index', ['ar' => $ar]);
     }
 
